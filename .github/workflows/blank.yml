@@ -29,7 +29,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-            docker login --username=czjhlsj --password=689128Coa registry.cn-shenzhen.aliyuncs.com
+            docker login --username=${{USR}} --password=${{PSW}} registry.cn-shenzhen.aliyuncs.com
             docker pull registry.k8s.io/cpa/cluster-proportional-autoscaler:1.8.4
             docker tag registry.k8s.io/cpa/cluster-proportional-autoscaler:1.8.4 registry.cn-shenzhen.aliyuncs.com/czjhlsj/registry_k8s_io:cluster-proportional-autoscaler-1.8.4
             docker push registry.cn-shenzhen.aliyuncs.com/czjhlsj/registry_k8s_io:cluster-proportional-autoscaler-1.8.4
