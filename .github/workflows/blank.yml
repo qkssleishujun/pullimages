@@ -20,7 +20,7 @@ registry.k8s.io/ingress-nginx/controller:v1.8.1@sha256:e5c4824e7375fcf2a393e1c03
 ghcr.io/kedacore/keda-metrics-apiserver:2.11.2
 ghcr.io/kedacore/keda:2.11.2
 ghcr.io/kedacore/keda-admission-webhooks:2.11.2
-            )
+)
             for i in ${image_list[@]};do
                 docker pull $i
                 docker tag $i registry.cn-shenzhen.aliyuncs.com/czjhlsj/registry_k8s_io:$(basename $i | tr -s ':' '-')
