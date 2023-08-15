@@ -17,5 +17,6 @@ jobs:
             for i in ${image_list[@]} ;do
             docker pull $i
             docker tag $i $(echo registry.cn-shenzhen.aliyuncs.com/czjhlsj/registry_k8s_io:$(basename $i | tr -s ':' '-'))
-            docker push !$
+            docker push $(echo registry.cn-shenzhen.aliyuncs.com/czjhlsj/registry_k8s_io:$(basename $i | tr -s ':' '-'))
+            echo docker pull registry.cn-shenzhen.aliyuncs.com/czjhlsj/registry_k8s_io:$(basename $i | tr -s ':' '-')
             done
