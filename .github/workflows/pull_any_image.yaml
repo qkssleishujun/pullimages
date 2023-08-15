@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+                #echo "docker pull registry.cn-shenzhen.aliyuncs.com/czjhlsj/registry_k8s_io:$(basename $i | tr -s ':' '-')"
       - name: Run a multi-line script
         run: |
             docker login --username=${{ secrets.USR }} --password=${{ secrets.PSW }} registry.cn-shenzhen.aliyuncs.com
@@ -22,8 +23,7 @@ ghcr.io/kedacore/keda:2.11.2
 ghcr.io/kedacore/keda-admission-webhooks:2.11.2
 )
             for i in ${image_list[@]};do
-                docker pull $i
-                docker tag $i registry.cn-shenzhen.aliyuncs.com/czjhlsj/registry_k8s_io:$(basename $i | tr -s ':' '-')
+                docker pull "$i"
+                docker tag "$i" "registry.cn-shenzhen.aliyuncs.com/czjhlsj/registry_k8s_io:$(basename $i | tr -s ':' '-')"
                 docker push !$
             done
-                #echo "docker pull registry.cn-shenzhen.aliyuncs.com/czjhlsj/registry_k8s_io:$(basename $i | tr -s ':' '-')"
