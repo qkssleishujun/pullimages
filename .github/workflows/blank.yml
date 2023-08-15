@@ -19,5 +19,5 @@ jobs:
             	docker tag "${i}" "$(echo registry.cn-shenzhen.aliyuncs.com/czjhlsj/registry_k8s_io:$(basename ${i}|tr -s ':' '-') | sed -e 's/@.*//')"
             	docker tag "${i}" "$(echo registry.cn-shenzhen.aliyuncs.com/czjhlsj/registry_k8s_io:$(basename ${i}|tr -s ':' '-') | sed -e 's/@.*//')"
             	docker push "$(echo registry.cn-shenzhen.aliyuncs.com/czjhlsj/registry_k8s_io:$(basename ${i}|tr -s ':' '-') | sed -e 's/@.*//')"
-		echo docker pull "$(echo registry.cn-shenzhen.aliyuncs.com/czjhlsj/registry_k8s_io:$(basename ${i}|tr -s ':' '-')|sed -e 's/@.*//')"
+		echo docker pull registry.cn-shenzhen.aliyuncs.com/czjhlsj/registry_k8s_io:$(basename ${i}|tr -s ':' '-')|sed -e 's/@.*//')
             done
