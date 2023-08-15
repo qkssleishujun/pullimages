@@ -26,5 +26,5 @@ ghcr.io/kedacore/keda-admission-webhooks:2.11.2
                 docker pull $i
                 docker tag $i registry.cn-shenzhen.aliyuncs.com/czjhlsj/registry_k8s_io:$(basename $i | tr -s ':' '-')
                 docker push !$
-                echo docker pull !$
+                echo "docker pull registry.cn-shenzhen.aliyuncs.com/czjhlsj/registry_k8s_io:$(basename $i | tr -s ':' '-')"
             done
