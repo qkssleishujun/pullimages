@@ -13,10 +13,15 @@ jobs:
       - name: Run a multi-line script
         run: |
             docker login --username=${{ secrets.USR }} --password=${{ secrets.PSW }} registry.cn-shenzhen.aliyuncs.com
+<<<<<<< HEAD
             image_list=( registry.k8s.io/cpa/cluster-proportional-autoscaler:1.8.4 registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20230407@sha256:543c40fd093964bc9ab509d3e791f9989963021f1e9e4c9c7b6700b02bfb227b registry.k8s.io/ingress-nginx/controller:v1.8.1@sha256:e5c4824e7375fcf2a393e1c03c293b69759af37a9ca6abdb91b13d78a93da8bd ghcr.io/kedacore/keda-metrics-apiserver:2.11.2 ghcr.io/kedacore/keda:2.11.2 ghcr.io/kedacore/keda-admission-webhooks:2.11.2 registry.k8s.io/dns/k8s-dns-node-cache:1.22.23 hhyo/archery:v1.10.0 )
+=======
+            image_list=( k8s.gcr.io/kube-state-metrics/kube-state-metrics:v2.0.0 registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.10.1 registry.k8s.io/prometheus-adapter/prometheus-adapter:v0.11.2 registry.k8s.io/cpa/cluster-proportional-autoscaler:1.8.4 registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20230407@sha256:543c40fd093964bc9ab509d3e791f9989963021f1e9e4c9c7b6700b02bfb227b registry.k8s.io/ingress-nginx/controller:v1.8.1@sha256:e5c4824e7375fcf2a393e1c03c293b69759af37a9ca6abdb91b13d78a93da8bd ghcr.io/kedacore/keda-metrics-apiserver:2.11.2 ghcr.io/kedacore/keda:2.11.2 ghcr.io/kedacore/keda-admission-webhooks:2.11.2 registry.k8s.io/dns/k8s-dns-node-cache:1.22.23 hhyo/archery:v1.10.0 )
+>>>>>>> f2b5650f63de8cfff40622683341c8785f66c2a9
             for i in ${image_list[@]} ;do
             	docker pull "${i}"
             	docker tag "${i}" "$(echo registry.cn-shenzhen.aliyuncs.com/czjhlsj/registry_k8s_io:$(basename ${i}|tr -s ':' '-') | sed -e 's/@.*//')"
             	docker tag "${i}" "$(echo registry.cn-shenzhen.aliyuncs.com/czjhlsj/registry_k8s_io:$(basename ${i}|tr -s ':' '-') | sed -e 's/@.*//')"
             	docker push "$(echo registry.cn-shenzhen.aliyuncs.com/czjhlsj/registry_k8s_io:$(basename ${i}|tr -s ':' '-') | sed -e 's/@.*//')"
+                echo "$(echo registry.cn-shenzhen.aliyuncs.com/czjhlsj/registry_k8s_io:$(basename ${i}|tr -s ':' '-') | sed -e 's/@.*//')"
             done
