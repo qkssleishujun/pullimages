@@ -18,8 +18,7 @@ jobs:
             #image_list=( hhyo/archery:v1.11.3 )
             #image_list=( pegleg/whaler )
             #image_list=( ghcr.io/flannel-io/flannel:v0.26.4 ghcr.io/flannel-io/flannel-cni-plugin:v1.6.2-flannel )
-            image_list=( ghcr.io/flannel-io/flannel-cni-plugin:v1.6.2-flannel )
-
+            image_list=( ghcr.io/flannel-io/flannel-cni-plugin:v1.6.2-flannel1 )
             for i in ${image_list[@]} ;do
             	docker pull "${i}"
             	docker tag "${i}" "$(echo registry.cn-shenzhen.aliyuncs.com/czjhlsj/registry_k8s_io:$(basename ${i}|tr -s ':' '-') | sed -e 's/@.*//')"
