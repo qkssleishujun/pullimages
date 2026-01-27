@@ -21,7 +21,8 @@ jobs:
             #image_list=( ghcr.io/flannel-io/flannel-cni-plugin:v1.6.2-flannel1 )
             #image_list=( beardedmanzhao/webssh )
             #image_list=( tabbyml/tabby )
-            image_list=( infiniflow/ragflow:v0.17.2  )
+            #image_list=( infiniflow/ragflow:v0.17.2  )
+            image_list=( metasploitframework/metasploit-framework  )
             for i in ${image_list[@]} ;do
             	docker pull "${i}"
             	docker tag "${i}" "$(echo registry.cn-shenzhen.aliyuncs.com/czjhlsj/registry_k8s_io:$(basename ${i}|tr -s ':' '-') | sed -e 's/@.*//')"
