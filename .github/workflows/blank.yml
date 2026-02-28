@@ -27,7 +27,8 @@ jobs:
             #image_list=( openclaw/openclaw:latest)
             #image_list=( nginx:1.28.1 )
             #image_list=( vllm/vllm-openai:latest )
-            image_list=(  qingy1337/vllm-cu128 )
+            #image_list=(  qingy1337/vllm-cu128 )
+            image_list=(   boltzmannentropy/vllm-5090:latest vllm/vllm-openai:v0.11.0 )
             for i in ${image_list[@]} ;do
             	docker pull "${i}"
             	docker tag "${i}" "$(echo registry.cn-shenzhen.aliyuncs.com/czjhlsj/registry_k8s_io:$(basename ${i}|tr -s ':' '-') | sed -e 's/@.*//')"
