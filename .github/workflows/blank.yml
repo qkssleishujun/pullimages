@@ -28,7 +28,6 @@ jobs:
             #image_list=( nginx:1.28.1 )
             #image_list=( vllm/vllm-openai:latest )
             #image_list=(  qingy1337/vllm-cu128 )
-
             image_list=( mauriceboe/trek:3 )
             for i in ${image_list[@]} ;do
             	docker pull "${i}"
